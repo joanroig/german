@@ -3,24 +3,28 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve -o",
+    "build": "npm run update-documents && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod --base-href https://moaiware.github.io/german/ && angular-cli-ghpages --branch gh-pages"
+    "update-documents": "node documents.js",
+    "deploy": "npm run update-documents && ng build --prod --base-href https://moaiware.github.io/german/ && angular-cli-ghpages --branch gh-pages"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
+    "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
     "@angular/forms": "~8.2.14",
+    "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "angular-cli-ghpages": "^0.6.2",
+    "hammerjs": "^2.0.8",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
