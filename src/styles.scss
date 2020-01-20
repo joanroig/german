@@ -10,123 +10,100 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+// Duolingo extracted CSS
 
-// html {
-//     line-height:1.15;
-//     -ms-text-size-adjust:100%;
-//     -webkit-text-size-adjust:100%
+._3Fb9m {
 
-//    box-sizing: border-box;
-//    color: rgb(75, 75, 75);
-//    cursor: default;
-//    font-family: din-round, sans-serif;
-//    font-feature-settings: normal;
-//    font-kerning: auto;
-//    font-language-override: normal;
-//    font-optical-sizing: auto;
-//    font-size: 17px;
-//    font-size-adjust: none;
-//    font-stretch: 100%;
-//    font-style: normal;
-//    font-variant: normal;
-//    font-variant-alternates: normal;
-//    font-variant-caps: normal;
-//    font-variant-east-asian: normal;
-//    font-variant-ligatures: normal;
-//    font-variant-numeric: normal;
-//    font-variant-position: normal;
-//    font-variation-settings: normal;
-//    font-weight: 500;
-//    line-height: 24px;
-//    outline-color: rgb(75, 75, 75);
-//    outline-style: none;
-//    outline-width: 0px;
-//    padding-top: 15px;
-//    text-align: start;
-//    user-select: auto;
-//    word-break: break-word;
-//    -moz-osx-font-smoothing: grayscale;
-//    }
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 
+  color: #4b4b4b;
+  font-size: 17px;
+  line-height: 24px;
+  padding-top: 15px;
+  word-break: break-word
+}
 
+._3Fb9m a {
+  color: #1caff6
+}
 
-//    ._3Fb9m {
+._3Fb9m h1,
+._3Fb9m h2,
+._3Fb9m h3,
+._3Fb9m h4,
+._3Fb9m h5,
+._3Fb9m h6 {
+  color: inherit;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 12px;
+  text-transform: none
+}
 
-//    width: 80%;
-//    margin-left: auto;
-//    margin-right: auto;
+._3Fb9m h1 em,
+._3Fb9m h2 em,
+._3Fb9m h3 em,
+._3Fb9m h4 em,
+._3Fb9m h5 em,
+._3Fb9m h6 em {
+  font-style: inherit
+}
 
-//     color:#4b4b4b;
-//     font-size:17px;
-//     line-height:24px;
-//     padding-top:15px;
-//     word-break:break-word
-//    }
-//    ._3Fb9m a {
-//     color:#1caff6
-//    }
-//    ._3Fb9m h1,
-//    ._3Fb9m h2,
-//    ._3Fb9m h3,
-//    ._3Fb9m h4,
-//    ._3Fb9m h5,
-//    ._3Fb9m h6 {
-//     color:inherit;
-//     font-size:22px;
-//     font-weight:700;
-//     line-height:28px;
-//     margin-bottom:12px;
-//     text-transform:none
-//    }
-//    ._3Fb9m h1 em,
-//    ._3Fb9m h2 em,
-//    ._3Fb9m h3 em,
-//    ._3Fb9m h4 em,
-//    ._3Fb9m h5 em,
-//    ._3Fb9m h6 em {
-//     font-style:inherit
-//    }
-//    ._3Fb9m img {
-//     max-width:100%
-//    }
-//    ._3Fb9m table {
-//     margin:24px 0;
-//     table-layout:fixed;
-//     width:100%
-//    }
-//    ._3Fb9m td,
-//    ._3Fb9m th {
-//     padding:10px 12px
-//    }
-//    ._3Fb9m td {
-//     border-bottom:2px solid #e5e5e5;
-//     border-right:2px solid #e5e5e5;
-//     border-top:0;
-//     vertical-align:top
-//    }
-//    ._3Fb9m td:first-child {
-//     border-left:2px solid #e5e5e5
-//    }
-//    ._3Fb9m th {
-//     background:#1caff6;
-//     color:#fff
-//    }
-//    ._3Fb9m th:first-child {
-//     border-radius:16px 0 0 0
-//    }
-//    ._3Fb9m th:last-child {
-//     border-radius:0 16px 0 0
-//    }
-//    ._3Fb9m tr:last-child td:first-child {
-//     border-radius:0 0 0 16px
-//    }
-//    ._3Fb9m tr:last-child td:last-child {
-//     border-radius:0 0 16px 0
-//    }
-//    ._3Fb9m ul {
-//     list-style-type:disc;
-//     margin:24px 0 24px 20px
-//    }
-//    ._3Fb9m ul li:not(:last-child) {
-//     margin-bottom:12px
-//    }
+._3Fb9m img {
+  max-width: 100%
+}
+
+._3Fb9m table {
+  margin: 24px 0;
+  table-layout: fixed;
+  width: 100%
+}
+
+._3Fb9m td,
+._3Fb9m th {
+  padding: 10px 12px
+}
+
+._3Fb9m td {
+  border-bottom: 2px solid #e5e5e5;
+  border-right: 2px solid #e5e5e5;
+  border-top: 0;
+  vertical-align: top
+}
+
+._3Fb9m td:first-child {
+  border-left: 2px solid #e5e5e5
+}
+
+._3Fb9m th {
+  background: #1caff6;
+  color: #fff
+}
+
+._3Fb9m th:first-child {
+  border-radius: 16px 0 0 0
+}
+
+._3Fb9m th:last-child {
+  border-radius: 0 16px 0 0
+}
+
+._3Fb9m tr:last-child td:first-child {
+  border-radius: 0 0 0 16px
+}
+
+._3Fb9m tr:last-child td:last-child {
+  border-radius: 0 0 16px 0
+}
+
+._3Fb9m ul {
+  list-style-type: disc;
+  margin: 24px 0 24px 20px
+}
+
+._3Fb9m ul li:not(:last-child) {
+  margin-bottom: 12px
+}
