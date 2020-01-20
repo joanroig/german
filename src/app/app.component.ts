@@ -16,14 +16,22 @@ export class AppComponent {
   documents: Doc[];
 
   mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
   selected: string;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private http: HttpClient) {
     this.documents = docs;
     this.loadFile(docs[0].file);
+
+    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  ngOnDestroy(): void {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
 
   loadFile(file: string) {
     this.http.get<string>(file, { responseType: 'text' as 'json' }).subscribe(data => {
