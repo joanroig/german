@@ -91,11 +91,15 @@ THE SOFTWARE.
 
 @angular/material/dialog
 
+@angular/material/icon
+
 @angular/material/list
 
 @angular/material/sidenav
 
 @angular/material/snack-bar
+
+@angular/material/toolbar
 
 @angular/platform-browser
 MIT
