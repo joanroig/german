@@ -5,7 +5,8 @@
       <button mat-icon-button (click)=" snav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <h1>German Tips</h1>
+      <!-- <h1>German Tips</h1> -->
+      <h1>{{title}}</h1>
       <span class="menu-spacer"></span>
       <div style="padding-top: 5px;">
         <!-- <a class="github-button" href="https://github.com/moaiware/german" data-icon="octicon-star" data-size="large"
@@ -18,25 +19,26 @@
     <mat-sidenav-container class="sidenav-container">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="opened" fixedTopGap="56">
         <mat-nav-list>
-          <div *ngFor="let chapter of chapters | keyvalue">
 
-            <div [ngSwitch]="groupBy">
-              <div *ngSwitchCase="groupTypes.topics">
-                <a>Topic {{chapter.key}}</a>
-              </div>
-              <div *ngSwitchCase="groupTypes.chapters">
-                <a>Chapter {{chapter.key}}</a>
-              </div>
-            </div>
-
-            <a mat-list-item *ngFor="let lesson of chapter.value" (click)="loadFile(lesson.file)">
-              {{lesson.lessonId}} - {{lesson.title}} </a>
-          </div>
+          <mat-accordion *ngFor="let chapter of chapters | keyvalue">
+            <mat-expansion-panel class="mat-elevation-z0" [expanded]="chapter.key === groupName"
+              [@.disabled]="disableAnimation">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Chapter {{chapter.key}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list-item *ngFor="let lesson of chapter.value" routerLink="chapter/{{chapter.key}}/{{lesson.id}}"
+                routerLinkActive="active-list-item">
+                {{lesson.title}}
+              </mat-list-item>
+            </mat-expansion-panel>
+          </mat-accordion>
         </mat-nav-list>
       </mat-sidenav>
 
       <mat-sidenav-content>
-        <div class="inner" [innerHTML]="selected"></div>
+        <div class="inner" [innerHTML]="lessonContent"></div>
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>

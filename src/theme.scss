@@ -1,8 +1,12 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$my-app-primary: mat-palette($mat-light-blue, 600);
-$my-app-accent: mat-palette($mat-pink, 500, 900, A100);
-$my-app-warn: mat-palette($mat-deep-orange);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-@include angular-material-theme($my-app-theme);
+$app-primary: mat-palette($mat-light-blue, 600);
+$app-accent: mat-palette($mat-pink, 500, 900, A100);
+$app-warn: mat-palette($mat-deep-orange);
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+@include angular-material-theme($app-theme);
+
+// Colors to use in SCSS
+$primary: map-get($app-theme, primary);
+$accent: map-get($app-theme, accent);
