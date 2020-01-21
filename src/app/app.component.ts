@@ -1,19 +1,32 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import docs from '../documents.json';
-import { Doc } from './documents.model.js';
+import chapters from '../assets/chapters.json';
+import topics from '../assets/topics.json';
 import { HttpClient } from '@angular/common/http';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { Group } from './group.model.js';
+
+export enum GroupTypes {
+  chapters,
+  topics
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent {
   title = 'German';
   events: string[] = [];
   opened = true;
-  documents: Doc[];
+
+  public groupTypes = GroupTypes;
+  groupBy = GroupTypes.topics;
+
+  chapters: Group;
+  topics: Group;
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
@@ -21,8 +34,13 @@ export class AppComponent {
   selected: string;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private http: HttpClient) {
-    this.documents = docs;
-    this.loadFile(docs[0].file);
+    this.chapters = chapters;
+    this.topics = topics;
+
+    this.loadFile(Object.values(chapters)[0][0].file);
+
+    // Object.entries(chapters).forEach(
+    //   ([key, value]) => this.loadFile(value[0].file));
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();

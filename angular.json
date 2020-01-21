@@ -26,7 +26,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/documents.json"
             ],
             "styles": [
               "src/theme.scss",
