@@ -91,6 +91,8 @@ THE SOFTWARE.
 
 @angular/material/dialog
 
+@angular/material/expansion
+
 @angular/material/icon
 
 @angular/material/list
