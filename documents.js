@@ -22,16 +22,18 @@ function process(item, index) {
 
     // Prepare variables
     let file = 'assets/documents/' + item;
-    let title = item.split("-")[1].replace(/_/g, ' ').replace('.html', '');
+    let title = item.split("-")[1].replace('.html', '');
     let chapter = Number(item.split("-")[0].split(".")[0]);
     let order = Number(item.split("-")[0].split(".")[1]);
     var lesson = item.split("-")[2];
     lesson = lesson == null ? 0 : parseInt(lesson[0]);
     let fullTitle = lesson == 0 ? title : title + " " + lesson;
+    let id = fullTitle.toLowerCase().replace(/[^a-z0-9_-]+/gi, '-')
 
     // Build a lesson for a chapter and a lesson for a topic
     var chapterLesson = {},
       topicLesson = {};
+    chapterLesson.id = topicLesson.id = id;
     chapterLesson.file = topicLesson.file = file;
     chapterLesson.title = topicLesson.title = fullTitle;
     chapterLesson.lesson = order;
