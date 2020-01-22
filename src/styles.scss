@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "src/theme.scss";
+
 html,
 body {
   height: 100%;
@@ -8,6 +10,35 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-drawer-inner-container {
+  overflow-y: scroll !important;
+}
+
+//  Expansion panel properties
+.mat-expansion-panel-body {
+  padding: 4px !important;
+}
+
+mat-expansion-panel-header {
+  background-color: gray;
+}
+
+.mat-expansion-indicator::after,
+.mat-expansion-panel-header-description {
+  color: white;
+}
+
+mat-expansion-panel-header {
+  background-color: mat-color($primary) !important;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+mat-panel-title {
+  color: white !important;
+  font-weight: bold;
 }
 
 // Duolingo extracted CSS
