@@ -2,7 +2,7 @@
 
   <div class="container">
     <mat-toolbar color="primary" class="toolbar">
-      <button mat-icon-button (click)=" snav.toggle()">
+      <button mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <!-- <h1>German Tips</h1> -->
@@ -17,9 +17,13 @@
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container">
-      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="opened" fixedTopGap="56">
-        <mat-nav-list>
+      <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [(opened)]="opened" fixedTopGap="56">
 
+        <!-- <button (click)="switchGroupType()">
+          switch mode
+        </button> -->
+
+        <mat-nav-list *ngIf="groupBy === groupTypes.chapter">
           <mat-accordion *ngFor="let chapter of chapters | keyvalue">
             <mat-expansion-panel class="mat-elevation-z0" [expanded]="chapter.key === groupName"
               [@.disabled]="disableAnimation">
@@ -29,14 +33,32 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <mat-list-item *ngFor="let lesson of chapter.value" routerLink="chapter/{{chapter.key}}/{{lesson.id}}"
+                routerLinkActive="active-list-item"
+                style="background-color: #EEEE; margin-top: 2px; border-radius: 4px;">
+                {{lesson.title}}
+              </mat-list-item>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-nav-list>
+
+        <mat-nav-list *ngIf="groupBy === groupTypes.topic">
+          <mat-accordion *ngFor="let topic of topics | keyvalue">
+            <mat-expansion-panel class="mat-elevation-z0" [expanded]="topic.key === groupName"
+              [@.disabled]="disableAnimation">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{topic.key}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-list-item *ngFor="let lesson of topic.value" routerLink="topic/{{topic.key}}/{{lesson.id}}"
                 routerLinkActive="active-list-item">
                 {{lesson.title}}
               </mat-list-item>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-nav-list>
-      </mat-sidenav>
 
+      </mat-sidenav>
       <mat-sidenav-content>
         <div class="inner" [innerHTML]="lessonContent"></div>
       </mat-sidenav-content>

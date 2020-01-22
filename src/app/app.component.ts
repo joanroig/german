@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, HostListener } from '@angular/core';
 import chapters from '../assets/chapters.json';
 import topics from '../assets/topics.json';
 import { HttpClient } from '@angular/common/http';
@@ -24,8 +24,8 @@ export class AppComponent implements OnInit {
   events: string[] = [];
   opened = true;
 
-  public groupTypes = GroupTypes;
-  groupBy = GroupTypes.topic;
+  groupTypes = GroupTypes;
+  groupBy = GroupTypes.chapter;
 
   chapters: Group;
   topics: Group;
@@ -58,6 +58,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
+    // Open menu by default in browser but not in mobile
+    this.opened = !this.mobileQuery.matches;
+
     // Change the selection on url change
     this.router.events.subscribe(event => {
       if (this.location.path() !== '') {
@@ -66,7 +69,7 @@ export class AppComponent implements OnInit {
         this.groupName = urlParts[2];
         const lessonId = urlParts[3];
         var selected: Lesson;
-        ;
+
         switch (groupType) {
           case GroupTypes.chapter:
             selected = this.chapters[this.groupName].find(a => a.id === lessonId);
@@ -77,8 +80,13 @@ export class AppComponent implements OnInit {
           default:
             console.error('Group type not recognized!');
         }
-        this.title = selected.title;
-        this.loadFile(selected.file);
+
+        if (selected) {
+          this.title = selected.title;
+          this.loadFile(selected.file);
+        } else {
+          console.error('Route not found!');
+        }
       }
     });
 
@@ -88,11 +96,36 @@ export class AppComponent implements OnInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  loadFile(file: string) {
+  @HostListener('panright')
+  openSidenav() {
+    // open the sidenav
+    if (this.mobileQuery.matches) {
+      this.opened = true;
+    }
+  }
 
+  @HostListener('panleft')
+  closeSidenav() {
+    // close the sidenav
+    if (this.mobileQuery.matches) {
+      this.opened = false
+    }
+  }
+
+  loadFile(file: string) {
     this.http.get<string>(file, { responseType: 'text' as 'json' }).subscribe(data => {
       this.lessonContent = data;
-    });
+      // Leave the menu opened in browser but not in mobile
+      this.opened = !this.mobileQuery.matches;
+    },
+      err => {
+        console.log(err);
+        this.router.navigate(['/']);
+      });
+  }
+
+  switchGroupType() {
+    this.groupBy = this.groupBy === GroupTypes.chapter ? GroupTypes.topic : GroupTypes.chapter;
   }
 
   // Workaround for angular component issue #13870
