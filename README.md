@@ -1,6 +1,9 @@
-# German
+# German Tips - Study guide extracted from Duolingo tips.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+Website to study German in a more immersive way, as the text is shown in full screen and keeps Duolingo's stylesheet.
+
+It is hosted by GitHub pages:
+https://moaiware.github.io/german/chapter/1/basics-1
 
 ## Development server
 
