@@ -6,6 +6,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Group, Lesson } from './group.model';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { version } from 'package.json';
 
 export enum GroupTypes {
   chapter = 'chapter',
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
   title = 'German';
   events: string[] = [];
   opened = true;
+  public versionNumber: string = version;
 
   groupTypes = GroupTypes;
   groupBy = GroupTypes.chapter;
