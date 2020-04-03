@@ -48,7 +48,11 @@ h1.app-name {
   margin-bottom: 60px;
 }
 
-
 .active-list-item {
   color: mat-color($primary) !important;
+}
+
+.version {
+  color: lightgray;
+  padding: 8px;
 }
