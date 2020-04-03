@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "update-documents": "node documents.js",
-    "deploy": "npm run update-documents && ng build --prod --base-href https://moaiware.github.io/german/ && angular-cli-ghpages --branch gh-pages"
+    "deploy": "npm run update-documents && ng build --prod --base-href https://joanroig.github.io/german/ && angular-cli-ghpages --branch gh-pages"
   },
   "private": true,
   "dependencies": {

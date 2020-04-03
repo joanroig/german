@@ -3,7 +3,7 @@
 Website to study German in a more immersive way, as the text is shown in full screen and keeps Duolingo's stylesheet.
 
 It is hosted by GitHub pages:
-https://moaiware.github.io/german/chapter/1/basics-1
+https://joanroig.github.io/german/chapter/1/basics-1
 
 ## Development server
 
